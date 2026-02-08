@@ -38,7 +38,7 @@
 #define WEB_PATH "/get"
 
 
-static const char* SSD_1306_TAG = "SSD1306";
+static const char* SSD_1306_TAG = "1306";
 static const char* TAG = "example";
 
 static i2c_master_bus_handle_t i2c0_bus_hdl = NULL;
