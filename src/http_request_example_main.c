@@ -54,7 +54,8 @@ void i2c0_ssd1306_task(void* pvParameters)
 {
     // initialize the xLastWakeTime variable with the current time.
     TickType_t last_wake_time = xTaskGetTickCount();
-    //
+
+    ESP_LOGI("VERSION", "ESP-IDF version: %s", esp_get_idf_version());
 
     // Scan I2C bus
     if (i2c0_bus_hdl == NULL)
@@ -121,9 +122,10 @@ void i2c0_ssd1306_task(void* pvParameters)
         ssd1306_display_text_x3(dev_hdl, 0, "Hello", false);
         vTaskDelay(3000 / portTICK_PERIOD_MS);
 
-        // Display bitmap icons (закомментируем, пока нет изображений)
+        // Display bitmap icons
         ESP_LOGI(SSD_1306_TAG, "Display bitmap icons");
         ssd1306_clear_display(dev_hdl, false);
+        vTaskDelay(3000 / portTICK_PERIOD_MS);
 
         ssd1306_display_bitmap(dev_hdl, 31, 0, data_rx_icon_32x32, 32, 32, false);
         vTaskDelay(500 / portTICK_PERIOD_MS);
